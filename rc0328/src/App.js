@@ -25,6 +25,8 @@ function App() {
     titleChange(); //state(title)를 아예 대체해주는 함수
   }
 
+  
+
 
   return (
     <div className="App">
