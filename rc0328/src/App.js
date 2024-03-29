@@ -21,18 +21,32 @@ function App() {
   //onClick ={클릭 될 때 실행할 함수} or onClick={()=>{실행할 내용}}
 
 
-  function titleCng(){
-    titleChange(); //state(title)를 아예 대체해주는 함수
-  }
 
+  //1. 일단 기존 state 카피본 생성
+  //2. 카피본에 수정사항 반영
+  //3. 변경함수()에 집어 넣시
 
+  function ChangeTitle(){
+    //titleChange(['여자 코드 추천', '구로 우동 맛집','은평 우동 맛집']); //state(title)를 아예 대체해주는 함수
+    
+    //1. 일단 기존 state 카피본 생성
+    var newArray=[...title] //※Deep Copy : 값공유x 서로독립적인 값을 가지는 복사 (☞ var 변수명 = [...state])  //var newArray = title; ◀ 복사가 아니라 값 공유(reference data type)
+    
+    //2. 카피본에 수정사항 반영
+    newArray[0] = '여자코트 추천';
+    
+    //3. 변경함수()에 집어 넣시
+    titleChange(newArray);
+  }//#함수(글제목 변경)
+
+  
 
   return (
     <div className="App">
       <div className="black-nav">
         <div>개발 Blog</div>
       </div>
-      <button onClick={titleCng}>버튼</button>
+      <button onClick={ChangeTitle}>버튼</button>
         <div className='list'>
           <h3>{title[0]}<span onClick={()=>{likeChange(like+1)}}>😀</span> {like} </h3> 
           <p>2024년 3월 28일 발생</p>
