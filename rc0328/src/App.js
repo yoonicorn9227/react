@@ -38,8 +38,6 @@ function App() {
     //3. 변경함수()에 집어 넣시
     titleChange(newArray);
   }//#함수(글제목 변경)
-
-  
   
 
   return (
