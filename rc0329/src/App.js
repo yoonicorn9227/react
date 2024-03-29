@@ -50,6 +50,7 @@ function App() {
           <hr/>
         </div>
 
+
         <Modal />
 
     </div>
