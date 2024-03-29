@@ -21,9 +21,11 @@ function App() {
   //onClick ={클릭 될 때 실행할 함수} or onClick={()=>{실행할 내용}}
 
 
-  function titleCng(){
-    titleChange(); //state(title)를 아예 대체해주는 함수
-  }
+  // function ChangeTitle(){
+  //   var newArray =[...title];
+  //   newArray[0]='여자코트 추천'
+  //   titleChange(newArray); //state(title)를 아예 대체해주는 함수
+  // }
 
 
   return (
@@ -31,10 +33,10 @@ function App() {
       <div className="black-nav">
         <div>개발 Blog</div>
       </div>
-      <button onClick={titleCng}>버튼</button>
+      <button>버튼</button>
         <div className='list'>
           <h3>{title[0]}<span onClick={()=>{likeChange(like+1)}}>😀</span> {like} </h3> 
-          <p>2024년 3월 28일 발생</p>
+          <p>2024년 3월 29일 발생</p>
           <hr/>
         </div>
         <div className='list'>
@@ -47,8 +49,28 @@ function App() {
           <p>2024년 3월 30일 발생</p>
           <hr/>
         </div>
+
+        <Modal />
+
     </div>
-  );//return
+  );
 }
+
+
+//Component함수 만드는 기준 : 반복출현하는 HTML덩어리, 자주변경되는 UI들, 다른 페이지 만들 때도 Component 만듦
+//Component 단점 : state을 쓸때 복잡함 ☞ 상위 Component에서 만든 state를 쓰려면 'props 문법' 이용!
+//리액트 Component문법 : HTML을 한단어 줄여서 쓸수 있는 방법 
+function Modal(){ //Component이름짓기 ▶ Component함수 이름은 항상 첫글자는 대문자!
+  return ( //원하는 HTML 담기
+  <> 
+  <div className='modal'>
+    <h2>제목</h2>
+    <p>날짜</p>
+    <p>상세내용</p>
+ </div>
+  </> //return() 내부를 묶을때 의미없는<div> 쓰기 싫으면  <> </> 사용 : 프래그먼트 문법
+  )
+}//#모달창 Component함수
+
 
 export default App;
